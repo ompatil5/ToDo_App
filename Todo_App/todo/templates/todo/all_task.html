@@ -1,0 +1,29 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <a>Task:</a>
+        <a>{{form.task}}</a>
+        <button type="submit">ADD</button>
+
+    </form>
+
+
+    {% for djangotodo in tasks %}
+        <a class="mytask" href="{% url 'task_detail' djangotodo.id %}">{{ djangotodo.task }}</a><br>
+
+        {% if djangotodo.complete == True %}
+            <strike>{{ djangotodo }}</strike>
+        {% else %}
+            <span>{{ djangotodo }}</span>
+        {% endif %}
+
+
+
+    {% endfor %}
+
+
+{% endblock %}

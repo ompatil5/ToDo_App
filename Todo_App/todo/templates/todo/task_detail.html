@@ -1,0 +1,12 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+    <h1>{{data}}</h1>
+
+    <a class="btn btn-secondary" href="{% url 'update_task' pk=data.pk %}">Update</a>
+    <a class="btn btn-danger" href="{% url 'delete_task' pk=data.pk %}">Delete</a>
+    
+
+{% endblock %}
+
+
+
